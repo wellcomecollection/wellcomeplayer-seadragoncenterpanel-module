@@ -1,9 +1,9 @@
 /// <reference path="../../js/jquery.d.ts" />
 /// <reference path="../../js/extensions.d.ts" />
 
-import coreApp = require("../../extensions/coreplayer-seadragon-extension/app");
-import wellcomeApp = require("../../extensions/wellcomeplayer-seadragon-extension/app");
-import baseApp = require("../coreplayer-shared-module/baseApp");
+import coreApp = require("../../extensions/coreplayer-seadragon-extension/extension");
+import wellcomeExtension = require("../../extensions/wellcomeplayer-seadragon-extension/extension");
+import baseExtension = require("../coreplayer-shared-module/baseExtension");
 import baseCenter = require("../coreplayer-seadragoncenterpanel-module/seadragonCenterPanel");
 import utils = require("../../utils");
 
@@ -23,7 +23,7 @@ export class SeadragonCenterPanel extends baseCenter.SeadragonCenterPanel {
     viewerOpen(): void{
     	super.viewerOpen();
 
-    	if ((<wellcomeApp.App>this.app).searchResults) {
+    	if ((<wellcomeExtension.Extension>this.extension).searchResults) {
             this.overlaySearchResults();
         }
     }
@@ -32,10 +32,10 @@ export class SeadragonCenterPanel extends baseCenter.SeadragonCenterPanel {
 
         // loop through entries to get those for the current index.
         var page = null;
-        var searchResults = (<wellcomeApp.App>this.app).searchResults;
+        var searchResults = (<wellcomeExtension.Extension>this.extension).searchResults;
 
         for (var i = 0; i < searchResults.length; i++) {
-            if (searchResults[i].index == this.app.currentAssetIndex) {
+            if (searchResults[i].index == this.extension.currentAssetIndex) {
                 page = searchResults[i];
                 break;
             }
