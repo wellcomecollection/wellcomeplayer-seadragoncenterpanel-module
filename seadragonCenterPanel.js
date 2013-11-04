@@ -1,3 +1,5 @@
+/// <reference path="../../js/jquery.d.ts" />
+/// <reference path="../../js/extensions.d.ts" />
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -31,6 +33,7 @@ define(["require", "exports", "../coreplayer-seadragoncenterpanel-module/seadrag
         };
 
         SeadragonCenterPanel.prototype.overlaySearchResults = function () {
+            // loop through entries to get those for the current index.
             var page = null;
             var searchResults = (this.extension).searchResults;
 
@@ -68,6 +71,7 @@ define(["require", "exports", "../coreplayer-seadragoncenterpanel-module/seadrag
                 var w = rect.w;
                 var h = rect.h;
 
+                // normalise into seadragon points.
                 var factor = 1 / sourceWidth;
                 var xp = factor * x;
                 var yp = factor * y;
@@ -85,3 +89,4 @@ define(["require", "exports", "../coreplayer-seadragoncenterpanel-module/seadrag
     })(baseCenter.SeadragonCenterPanel);
     exports.SeadragonCenterPanel = SeadragonCenterPanel;
 });
+//# sourceMappingURL=seadragonCenterPanel.js.map
