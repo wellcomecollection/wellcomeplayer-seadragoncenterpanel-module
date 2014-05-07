@@ -14,7 +14,7 @@ export class SeadragonCenterPanel extends baseCenter.SeadragonCenterPanel {
     }
 
     create(): void {
-        
+
         this.setConfig('seadragonCenterPanel');
 
         super.create();
@@ -35,7 +35,7 @@ export class SeadragonCenterPanel extends baseCenter.SeadragonCenterPanel {
         var searchResults = (<wellcomeExtension.Extension>this.extension).searchResults;
 
         for (var i = 0; i < searchResults.length; i++) {
-            if (searchResults[i].index == this.extension.currentAssetIndex) {
+            if (searchResults[i].index == this.provider.canvasIndex) {
                 page = searchResults[i];
                 break;
             }
